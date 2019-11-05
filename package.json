@@ -1,0 +1,31 @@
+{
+  "name": "FS_React_Express",
+  "version": "1.0.0",
+  "description": "Food Library 1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "dev": "webpack-dev-server --open"
+  },
+  "keywords": [],
+  "author": "Dwayne Linde",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
+  }
+}
