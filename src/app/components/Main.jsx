@@ -7,6 +7,7 @@ import { ConnectedDashboard } from './Dashboard'
 import { Router, Route } from 'react-router-dom';
 import { history } from '../store/history';
 import { ConnectedNavigation } from './Navigation'
+import { ConnectTaskDetail } from './TaskDetail'
 
 export const Main = () => (
 
@@ -19,11 +20,19 @@ export const Main = () => (
 
       {/*}< ConnectedDashboard />*/}
 
-        <Route
-          exact
-          path="/dashboard"
-          render={()=>(<ConnectedDashboard />)}
-        />
+        // Routes!
+
+      <Route
+        exact
+        path="/dashboard"
+        render={()=>(<ConnectedDashboard />)}
+      />
+
+      <Route
+        exact
+        path="/task/:id"
+        render={({match})=>(<ConnectTaskDetail match={match} />)}
+      />
 
       </div>
     </Provider>

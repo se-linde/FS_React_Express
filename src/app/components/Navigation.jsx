@@ -31,12 +31,12 @@ const Navigation = ({id, authenticated})=>(
             </h1>
         </Link>
 
-        /* { authenticated ?
+        { authenticated ?
             <h4>
                 Welcome, <ConnectedUsernameDisplay id={id}/>!
             </h4>
             : null
-        }*/
+        }
     </div>
 );
 
