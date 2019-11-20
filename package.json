@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
-    "dev": "webpack-dev-server --open"
+    "dev": "webpack-dev-server --open",
+    "test-connect": "babel-node src/server/connect-db",
+    "initialize": "babel-node src/server/initialize-db",
+    "server": "babel-node src/server/server",
+    "server-test": "babel-node src/server/server.spec"
   },
   "keywords": [],
   "author": "Dwayne Linde",
@@ -18,6 +22,10 @@
     "@babel/preset-react": "^7.6.3",
     "@babel/register": "^7.6.2",
     "babel-loader": "^8.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.4",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0"
