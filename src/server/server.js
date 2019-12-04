@@ -3,6 +3,8 @@ import express from "express";
 import cors from "cors"; 
 import bodyParser from "body-parser"; 
 import { connectDB } from "./connect-db"; 
+import "./initialize-db"; 
+import { authenticationRoute } from './authenticate'; 
 
 let port = 2112;
 
@@ -22,6 +24,10 @@ app.use(
 	bodyParser.urlencoded({extended:true}),
 	bodyParser.json()
 ); 
+
+authenticationRoute(app); 
+
+
 
 // Separate method with a task, that communicates with the db. 
 export const addNewTask = async task=>{

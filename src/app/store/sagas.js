@@ -1,10 +1,7 @@
 /* eslint-disable no-console */
 
-import {
-	take,
-	put,
-	select
-} from "redux-saga/effects";
+import { take, put, select } from "redux-saga/effects";
+import { history } from "./history"; 
 
 import uuid from "uuid";
 import axios from "axios"; 
@@ -18,8 +15,8 @@ const url = "http://localhost:2112";
 export default function* taskCreationSaga(){
 	while (true){
 		const {groupID} = yield take(mutations.REQUEST_TASK_CREATION);
-		const ownerID = "U1";
-		// const ownerID = yield select(state=>state.session.id);
+		// const ownerID = "U1";
+		const ownerID = yield select(state=>state.session.id);
 		const taskID = uuid();
 		yield put(mutations.createTask(taskID, groupID, ownerID));
         
@@ -53,5 +50,31 @@ export function* taskModificationSaga(){
 			}
 		});
         
+	}
+}
+
+export function* userAuthenticationSaga(){
+	while (true) {
+		const {username, password} = yield take(mutations.REQUEST_AUTHENTICATE_USER);
+
+		try {
+			// eslint-disable-next-line quotes
+			const { data } = yield axios.post(url + `/authenticate`, {username, password}); 
+			if (!data) {
+				throw new Error(); 
+			}
+			console.log("Authenticated!", data);			
+			yield put(mutations.setState(data.state)); 
+			yield put(mutations.processAuthenticateUser(mutations.AUTHENTICATED));
+
+			history.push("/dashboard"); 
+
+		} catch (e) {
+			console.log("Cannot authenticate"); 
+			yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED)); 
+
+		}
+ 
+
 	}
 }
