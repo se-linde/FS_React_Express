@@ -4,9 +4,10 @@ import cors from "cors";
 import bodyParser from "body-parser"; 
 import { connectDB } from "./connect-db"; 
 import "./initialize-db"; 
-import { authenticationRoute } from './authenticate'; 
+import { authenticationRoute } from "./authenticate"; 
+import path from "path"; 
 
-let port = 2112;
+let port = process.env.port || 2112 ;
 
 // New instance of Express. 
 let app = express(); 
@@ -27,7 +28,12 @@ app.use(
 
 authenticationRoute(app); 
 
-
+if (process.env.NODE_ENV == `production`) {
+    app.use(express.static(path.resolve(__dirname, `../../dist`))); 
+    app.get('/*', (req,res)=>{
+        res.sendFile(path.resolve('iindex.html'));
+    });
+}
 
 // Separate method with a task, that communicates with the db. 
 export const addNewTask = async task=>{

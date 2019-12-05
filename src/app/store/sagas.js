@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
 
 import { take, put, select } from "redux-saga/effects";
-import { history } from "./history"; 
-
 import uuid from "uuid";
 import axios from "axios"; 
+
+import { history } from "./history"; 
 
 import * as mutations from "./mutations";
 
 // Using localhost until we publish, then change to the real URL. 
-const url = "http://localhost:2112"; 
+// eslint-disable-next-line no-undef
+const url = process.env.NODE_ENV == "production" ? "" : "http://localhost:2112"; 
 
 
 export default function* taskCreationSaga(){
