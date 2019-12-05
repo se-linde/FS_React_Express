@@ -8,6 +8,7 @@ import { authenticationRoute } from "./authenticate";
 import path from "path"; 
 
 let port = process.env.port || 2112 ;
+// let port = process.env.port; 
 
 // New instance of Express. 
 let app = express(); 
@@ -31,7 +32,7 @@ authenticationRoute(app);
 if (process.env.NODE_ENV == `production`) {
     app.use(express.static(path.resolve(__dirname, `../../dist`))); 
     app.get('/*', (req,res)=>{
-        res.sendFile(path.resolve('iindex.html'));
+        res.sendFile(path.resolve('index.html'));
     });
 }
 
