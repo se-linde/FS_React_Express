@@ -28,6 +28,7 @@ app.use(
 ); 
 
 authenticationRoute(app); 
+// get git to commit this change. 
 
 if (process.env.NODE_ENV == `production`) {
     app.use(express.static(path.resolve(__dirname, `../../dist`))); 
