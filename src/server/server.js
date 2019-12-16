@@ -7,7 +7,12 @@ import "./initialize-db";
 import { authenticationRoute } from "./authenticate"; 
 import path from "path"; 
 
+<<<<<<< HEAD
 let port = process.env.port || 8888 ;
+=======
+let port = process.env.port || 8888 ;
+// let port = process.env.port; 
+>>>>>>> 7271132ce13611d9591a3b4fc77fbc29c8e2d510
 
 // New instance of Express. 
 let app = express(); 
@@ -27,11 +32,12 @@ app.use(
 ); 
 
 authenticationRoute(app); 
+// get git to commit this change. 
 
 if (process.env.NODE_ENV == `production`) {
     app.use(express.static(path.resolve(__dirname, `../../dist`))); 
     app.get('/*', (req,res)=>{
-        res.sendFile(path.resolve('iindex.html'));
+        res.sendFile(path.resolve('index.html'));
     });
 }
 
