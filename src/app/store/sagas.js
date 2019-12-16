@@ -10,7 +10,7 @@ import * as mutations from "./mutations";
 
 // Using localhost until we publish, then change to the real URL. 
 // eslint-disable-next-line no-undef
-const url = process.env.NODE_ENV == "production" ? "" : "http://localhost:2112"; 
+const url = process.env.NODE_ENV == "production" ? "" : "http://localhost:8888"; 
 
 
 export default function* taskCreationSaga(){

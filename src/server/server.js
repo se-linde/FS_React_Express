@@ -7,7 +7,7 @@ import "./initialize-db";
 import { authenticationRoute } from "./authenticate"; 
 import path from "path"; 
 
-let port = process.env.port || 2112 ;
+let port = process.env.port || 8888 ;
 
 // New instance of Express. 
 let app = express(); 
