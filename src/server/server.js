@@ -9,7 +9,9 @@ import path from "path";
 
 
 
-let port = process.env.port || 8888 ;
+// let port = process.env.port || 8888 ;
+
+let port = server.listen(process.env.port || 8888); 
 
 // New instance of Express. 
 let app = express(); 
