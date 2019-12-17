@@ -11,12 +11,10 @@ import path from "path";
 
 // let port = process.env.port || 8888 ;
 
-let port = server.listen(process.env.port || 8888); 
+let port = server.listen(process.env.PORT || 8888); 
 
 // New instance of Express. 
 let app = express(); 
-
-app.listen(port,console.log("Server is listening on port: ", port)); 
 
 // Test Express connection get request. Works! 
 /* app.get("/", (req,res)=>{
@@ -29,6 +27,8 @@ app.use(
 	bodyParser.urlencoded({extended:true}),
 	bodyParser.json()
 ); 
+
+app.listen(port,console.log("Server is listening on port: ", port)); 
 
 authenticationRoute(app); 
 // get git to commit this change. 
