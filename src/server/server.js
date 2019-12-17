@@ -11,7 +11,10 @@ import path from "path";
 
 // let port = process.env.port || 8888 ;
 
-let port = server.listen(process.env.PORT || 8888); 
+// let port = server.listen(process.env.PORT || 8888); 
+
+const PORT = process.env.PORT || 8888;
+
 
 // New instance of Express. 
 let app = express(); 
@@ -28,7 +31,10 @@ app.use(
 	bodyParser.json()
 ); 
 
-app.listen(port,console.log("Server is listening on port: ", port)); 
+// app.listen(port,console.log("Server is listening on port: ", port)); 
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
 
 authenticationRoute(app); 
 // get git to commit this change. 
