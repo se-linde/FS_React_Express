@@ -30,7 +30,7 @@
     "express": "^4.17.1",
     "mongodb": "^3.3.4",
     "webpack": "^4.17.2",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
